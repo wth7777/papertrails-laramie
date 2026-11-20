@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>Papertrails — Laramie, Wyoming</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; background: #1b1b22; overflow: hidden; touch-action: none; overscroll-behavior: none; -webkit-user-select: none; user-select: none; }
+      #app { display: flex; flex-direction: column; height: 100%; }
+      #game-container { flex: 1; min-height: 0; position: relative; }
+      /* Touch controls styles would go here */
+      @media (orientation: landscape) and (max-height: 280px) {
+        body.touch #rotate-hint { display: flex; }
+      }
+      #rotate-hint { display: none; position: fixed; inset: 0; z-index: 20; background: #1b1b22ee; color: #fff; font-family: monospace; font-size: 18px; align-items: center; justify-content: center; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="game-container"></div>
+    </div>
+    <div id="rotate-hint">&#10227; Rotate your device</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
