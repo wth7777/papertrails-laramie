@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { saveHighScore, loadHighScore } from '../highscore.js';
 import { sfx } from '../audio/sfx.js';
 
-export default class EndScene extends Phaser.Scene {
+class EndScene extends Phaser.Scene {
   constructor() { super('EndScene'); }
   create() {
     const { width, height } = this.scale;

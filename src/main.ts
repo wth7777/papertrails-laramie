@@ -10,7 +10,7 @@ import GameOverScene from './scenes/GameOverScene.js';
 import EndScene from './scenes/EndScene.js';
 import { setupTouchControls } from './input/TouchControls.js';
 
-// Parse URL parameter for direct level launch (?level=1 through ?level=5, or ?level=laramie_wyoming)
+// Parse URL parameter for direct level launch
 const params = new URLSearchParams(window.location.search);
 const levelParam = params.get('level');
 let directLevel = null;
@@ -23,25 +23,16 @@ if (levelParam !== null) {
     directLevel = 'laramie_wyoming';
   }
 }
-window.__DIRECT_LEVEL__ = directLevel;
-
-// Parse seed parameter
 const seedParam = params.get('seed');
 if (seedParam !== null) {
   const seedNum = parseInt(seedParam, 10);
   if (Number.isInteger(seedNum)) window.__DIRECT_SEED__ = seedNum;
 }
+window.__DIRECT_LEVEL__ = directLevel;
 
-// Show/wire the on-screen buttons before the game boots, so the
-// layout (game on top, controls below) is settled when Phaser measures
-// its parent container.
-import { setupTouchControls } from './input/TouchControls.js';
+// Show/wire the on-screen buttons before the game boots
 setupTouchControls();
 
-// On phones in portrait the screen is narrow — a 800px-wide view ends up
-// tiny. We narrow the LOGICAL view instead (540px ≈ 30 tiles of lookahead,
-// the NES showed 16), so everything renders ~45% larger.
-// NOTE: keep in sync with the #game-container aspect-ratio in index.html.
 const BASE_WIDTH = 800;
 const PORTRAIT_WIDTH = 540;
 const HEIGHT = 450;
@@ -53,15 +44,12 @@ const config = {
   type: Phaser.AUTO,
   parent: 'game-container',
   width: logicalWidth(),
-  height: HEIGHT,
+  height: 450,
   backgroundColor: '#5c94fc',
   pixelArt: true,
   physics: {
     default: 'arcade',
-    arcade: {
-      gravity: { y: 1000 },
-      debug: false,
-    },
+    arcade: { gravity: { y: 1000 }, debug: false },
   },
   scale: {
     mode: Phaser.Scale.FIT,
@@ -81,15 +69,11 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
-
-// Unlock Phaser's AudioContext on first user gesture
 import { sfx } from './audio/sfx.js';
 sfx.setupPhaserUnlock(game);
 
-// Rotating the device switches between the wide and narrow logical view
-const portraitQuery = window.matchMedia('(orientation: portrait)');
 portraitQuery.addEventListener('change', () => {
-  game.scale.setGameSize(logicalWidth(), HEIGHT);
+  game.scale.setGameSize(logicalWidth(), 450);
   game.scale.refresh();
 });
 

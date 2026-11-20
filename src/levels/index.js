@@ -1,16 +1,7 @@
-import level1 from './level1.js';
-import level2 from './level2.js';
-import level3 from './level3.js';
-import level4 from './level4.js';
-import level5 from './level5.js';
 import laramie_wyoming from './laramie_wyoming.js';
-import bonus11 from './bonus11.js';
-import bonus15 from './bonus15.js';
 
-// World 1: level1 → level5, laramie_wyoming as optional bonus, chained via each level's `next` field.
-export const LEVELS = { level1, level2, level3, level4, level5, laramie_wyoming, bonus11, bonus15 };
+export const LEVELS = { laramie_wyoming };
 
-// Visual themes — picked per level via its `theme` field.
 export const THEMES = {
   overworld: {
     sky: '#1a1a2e',

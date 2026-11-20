@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { loadHighScore } from '../highscore.js';
 import { sfx } from '../audio/sfx.js';
 
-export default class TitleScene extends Phaser.Scene {
+class TitleScene extends Phaser.Scene {
   constructor() { super('TitleScene'); }
 
   create() {

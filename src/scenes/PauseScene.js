@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-export default class PauseScene extends Phaser.Scene {
+
+class PauseScene extends Phaser.Scene {
   constructor() { super('PauseScene'); }
   init(data) { this.parentScene = data.parentScene; }
   create() {

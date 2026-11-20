@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { LEVELS } from '../levels/index.js';
-export default class IntroScene extends Phaser.Scene {
+
+class IntroScene extends Phaser.Scene {
   constructor() { super('IntroScene'); }
   init(data) { this.levelId = data.levelId ?? 'laramie_wyoming'; }
   create() {

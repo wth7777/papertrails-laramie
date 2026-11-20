@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
-export default class HUDScene extends Phaser.Scene {
+
+class HUDScene extends Phaser.Scene {
   constructor() { super('HUDScene'); }
   create() {
-    const { width } = this.scale;
+    const { width, height } = this.scale;
     this.scoreText = this.add.text(16, 16, 'SCORE 000000', { fontFamily: 'monospace', fontSize: '18px', color: '#fff' }).setStroke('#000',3).setScrollFactor(0).setDepth(100);
     this.coinText = this.add.text(width-16, 16, 'COINS 000', { fontFamily: 'monospace', fontSize: '18px', color: '#fff' }).setOrigin(1,0).setStroke('#000',3).setScrollFactor(0).setDepth(100);
     this.timeText = this.add.text(width/2, 16, 'TIME 300', { fontFamily: 'monospace', fontSize: '18px', color: '#fff' }).setOrigin(0.5,0).setStroke('#000',3).setScrollFactor(0).setDepth(100);

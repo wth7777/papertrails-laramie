@@ -3,7 +3,7 @@ import { sfx } from '../audio/sfx.js';
 
 const TILEMAP_DIR = 'assets/kenney_pixel-platformer/Tilemap';
 
-export default class PreloadScene extends Phaser.Scene {
+class PreloadScene extends Phaser.Scene {
   constructor() { super('PreloadScene'); }
 
   preload() {
@@ -13,7 +13,6 @@ export default class PreloadScene extends Phaser.Scene {
     this.load.on('progress', (v) => bar.setScale(v, 1));
 
     // Spritesheets
-    const TILEMAP_DIR = 'assets/kenney_pixel-platformer/Tilemap';
     this.load.spritesheet('tiles', `${TILEMAP_DIR}/tilemap_packed.png`, { frameWidth: 18, frameHeight: 18 });
     this.load.spritesheet('chars', `${TILEMAP_DIR}/tilemap-characters_packed.png`, { frameWidth: 24, frameHeight: 24 });
     this.load.spritesheet('bg', `${TILEMAP_DIR}/tilemap-backgrounds_packed.png`, { frameWidth: 24, frameHeight: 24 });

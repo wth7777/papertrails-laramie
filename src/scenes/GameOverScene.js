@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { saveHighScore } from '../highscore.js';
-export default class GameOverScene extends Phaser.Scene {
+
+class GameOverScene extends Phaser.Scene {
   constructor() { super('GameOverScene'); }
   create() {
     const { width, height } = this.scale;
